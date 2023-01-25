@@ -1,10 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+import  CardGroup  from "./CardGroup";
+import '../css/App.css';
 
 function App() {
   return (
-    <div className="App">
-      
+    <div className="main">
+      <h1>Click en las cartas</h1>
+     <CardGroup />
     </div>
   );
 }
