@@ -6,11 +6,23 @@ function CardGroup() {
     let [selectedCards, setSelectedCards] = useState([])
     let api = `https://6388b6e5a4bb27a7f78f96a5.mockapi.io/sakura-cards/`
 
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * (max-1))
+    }
+
     useEffect(() => {
+        function compareNumbers(randomInt, dataArr, data) {
+            return dataArr.includes(data[randomInt])? compareNumbers(getRandomInt(data.length), dataArr, data): randomInt
+        }
       (async function getData() {
         let response = await fetch(api)
         let data = await response.json()
-        setSelectedCards(data.splice(0,3))
+        let dataArr = []
+        for (let i = 0; i < 3; i++) {
+            let randomInt = getRandomInt(data.length)
+            dataArr.push(data[compareNumbers(randomInt, dataArr, data)])
+        }
+        setSelectedCards(dataArr)
       })()
     }, [api])
     
