@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Card from './Card';
 
 function CardGroup() {
-    let [selectedCards, setSelectedCards] = useState(["pasado", "Presente", "Futuro"])
+    let cardType = ["pasado", "Presente", "Futuro"]
+    let [selectedCards, setSelectedCards] = useState([])
     let api = `https://6388b6e5a4bb27a7f78f96a5.mockapi.io/sakura-cards/`
 
     useEffect(() => {
@@ -19,7 +20,7 @@ function CardGroup() {
         <div className='main-cardGroup'>
             {selectedCards.map((item,index) =>
             <React.Fragment key={index}>
-                <Card item={item} name={item.spanishName} meaning={item.meaning} image={item.clowCard} />
+                <Card item={item} name={item.spanishName} meaning={item.meaning} image={item.clowCard} cardType={cardType[index]} />
             </React.Fragment>
             )}
 
