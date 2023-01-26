@@ -1,12 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import reverseCard from "../img/reversoCarta.png";
 
 function Card(props) {
-    console.info(props)
+    let [reverseStyle, setReverseStyle] = useState({display: "block"})
+    let [frontStyle, setFrontStyle] = useState({display: "none"})
+
+    function turnCard() {
+        setReverseStyle(frontStyle)
+        setFrontStyle(reverseStyle)
+    } 
+
     return (
         <div className='main-cardGroup-card'>
-            <img src={reverseCard} alt="reverse Card" />
-            <p>{props.item}</p>
+            <p>{props.name}</p>
+            <img src={reverseCard} onClick={turnCard} style={reverseStyle} alt="reverse Card" />
+            <img src={props.image} style={frontStyle} alt="reverse Card" />
+            
         </div>
     )
 }

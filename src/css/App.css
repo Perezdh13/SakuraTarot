@@ -1,3 +1,13 @@
+.main-cardGroup-card img{
+  cursor:pointer;
+  width: 280px;
+  height: 470px;
+}
+
+.main-cardGroup-card-reverseImg{
+  display: none;
+}
+
 .main-cardGroup{
   display:flex;
   justify-content: center;
