@@ -4,7 +4,7 @@ import Card from './Card';
 function CardGroup() {
     let cardType = ["pasado", "Presente", "Futuro"]
     let [selectedCards, setSelectedCards] = useState([])
-    let api = `https://6388b6e5a4bb27a7f78f96a5.mockapi.io/sakura-cards/`
+    let api = `https://6388b6e5a4bb27a7f78f96a5.mockapi.io/sakura-cards`
 
     function getRandomInt(max) {
         return Math.floor(Math.random() * (max-1))
