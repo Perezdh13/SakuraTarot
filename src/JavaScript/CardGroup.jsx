@@ -2,12 +2,21 @@ import React, { useEffect, useState } from 'react';
 import Card from './Card';
 
 function CardGroup() {
-    let cardType = ["pasado", "Presente", "Futuro"]
+    let cardType = ["Pasado", "Presente", "Futuro"]
     let [selectedCards, setSelectedCards] = useState([])
     let api = `https://6388b6e5a4bb27a7f78f96a5.mockapi.io/sakura-cards`
 
     function getRandomInt(max) {
         return Math.floor(Math.random() * (max - 1))
+    }
+
+    function changeImg(arr) {
+        let newArr = []
+        arr.forEach(element => {
+            element.clowCard = (!element.clowCard)? element.sakuraCard : element.clowCard;
+            newArr.push(element)
+        });
+        return newArr
     }
 
     useEffect(() => {
@@ -22,6 +31,8 @@ function CardGroup() {
                 let randomInt = getRandomInt(data.length)
                 dataArr.push(data[compareNumbers(randomInt, dataArr, data)])
             }
+
+            dataArr = changeImg(dataArr)
             setSelectedCards(dataArr)
         })()
     }, [api])
