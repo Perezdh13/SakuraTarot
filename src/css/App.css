@@ -1,3 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap');
+.fond{
+  background-color: rgb(39, 39, 39);
+}
+h1{
+  margin-bottom: 5vh;
+}
+P, h1{
+  background: transparent;
+  color: rgb(188, 141, 58); 
+  font-family: 'Grand-Hotel', cursive;
+}
+
+p {
+  -webkit-text-stroke: 1.5px black;
+  font-size: 150%;
+}
+
+h1 {
+  
+  -webkit-text-stroke: 4px black;
+  font-size: 400%;
+  margin-top: -0vh;
+}
+
+.main-cardGroup-card-name{
+margin-top: -8vh;
+}
+
+.main-cardGroup-card-descripcion{
+  position:absolute;
+  width:  15vw;
+  top: 0vh;
+  left: 0vw;
+  font-size: 200%
+  
+}
+
 .main-cardGroup-card img{
   cursor:pointer;
   width: 280px;
@@ -7,6 +45,7 @@
 .main-cardGroup-card-reverseImg{
   display: none;
 }
+
 
 .main-cardGroup{
   display:flex;
@@ -59,4 +98,3 @@
     transform: rotate(360deg);
   }
 }
- 
