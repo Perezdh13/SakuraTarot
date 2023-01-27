@@ -19,11 +19,11 @@ function Card(props) {
 
     return (
         <div className='main-cardGroup-card'>
-            <p class='main-cardGroup-card-name' style={frontStyle}>{props.name}</p>
+            <p className='main-cardGroup-card-name' style={frontStyle}>{props.name}</p>
             <img src={reverseCard} onClick={turnCard} style={reverseStyle} alt="reverse Card" />
             <img src={props.image} onMouseOut={(event) => { overCard(event) }} onMouseOver={(event) => { overCard(event) }} style={frontStyle} alt="reverse Card" />
-            <p class='main-cardGroup-card-descripcion'>{mouseOver}</p>
-            <p class='main-cardGroup-card-type'>{props.cardType}</p>
+            <p className='main-cardGroup-card-descripcion'>{mouseOver}</p>
+            <p className='main-cardGroup-card-type'>{props.cardType}</p>
         </div>
     )
 }
