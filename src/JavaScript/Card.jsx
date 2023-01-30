@@ -5,7 +5,7 @@ function Card(props) {
     let [reverseStyle, setReverseStyle] = useState({ display: "block" })
     let [frontStyle, setFrontStyle] = useState({ display: "none", opacity: "1"})
     let [nameStyle, setNameStyle] = useState({ display: "none"})
-    let [mouseOver, setMouseOver] = useState("")
+    let [meaning, setMeaning] = useState("")
     let [checkMouseout, setCheckMouseout] = useState(false)
 
 
@@ -15,10 +15,10 @@ function Card(props) {
         setNameStyle(reverseStyle)
     }
     function overCard(event) {
-        if (checkMouseout == false) {
+        if (checkMouseout === false) {
             setCheckMouseout ((event.type ==="mouseout")? true : false)
         }else {
-            setMouseOver((event.type === "mouseover") ? props.meaning : "")
+            setMeaning((event.type === "mouseover") ? props.meaning : "")
             setFrontStyle((event.type === "mouseover") ? { display: "block", opacity: "0.6"} : { display: "block", opacity: "1"})
         }
     }
@@ -30,7 +30,7 @@ function Card(props) {
             <div className='main-cardGroup-card-img'>
                 <img src={reverseCard} onClick={turnCard} style={reverseStyle} alt="reverse Card" />
                 <img src={props.image} onMouseOut={(event) => { overCard(event) }} onMouseOver={(event) => { overCard(event) }} style={frontStyle} alt="reverse Card" />
-                <p onMouseOut={(event) => { overCard(event) }} onMouseOver={(event) => { overCard(event) }} className='main-cardGroup-card-descripcion'>{mouseOver}</p>
+                <p onMouseOut={(event) => { overCard(event) }} onMouseOver={(event) => { overCard(event) }} className='main-cardGroup-card-descripcion'>{meaning}</p>
             </div>
             
             <p className='main-cardGroup-card-type'>{props.cardType}</p>
