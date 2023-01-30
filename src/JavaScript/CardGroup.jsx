@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import Card from './Card';
+import { useNavigate } from 'react-router-dom';
 
 function CardGroup() {
     let cardType = ["Pasado", "Presente", "Futuro"]
     let [selectedCards, setSelectedCards] = useState([])
     let api = `https://6388b6e5a4bb27a7f78f96a5.mockapi.io/sakura-cards`
+    let navigate = useNavigate()
 
     function getRandomInt(max) {
         return Math.floor(Math.random() * (max - 1))
     }
+
+    
 
     function changeImg(arr) {
         let newArr = []
@@ -31,12 +35,16 @@ function CardGroup() {
                 let randomInt = getRandomInt(data.length)
                 dataArr.push(data[compareNumbers(randomInt, dataArr, data)])
             }
-
             dataArr = changeImg(dataArr)
             setSelectedCards(dataArr)
         })()
     }, [api])
 
+    useEffect(() => {
+        window.onload = function() {
+            navigate("/")
+        };
+    }, [navigate]);
 
 
     return (
