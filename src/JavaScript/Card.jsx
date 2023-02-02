@@ -22,7 +22,6 @@ function Card(props) {
             setFrontStyle((event.type === "mouseover") ? { display: "block", opacity: "0.6"} : { display: "block", opacity: "1"})
         }
     }
-   
     
     return (
         <div className='main-cardGroup-card'>

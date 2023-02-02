@@ -1,18 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import deckCards from "../img/mazoCartas.png";
 import reverseCard from "../img/reversoCarta.png";
 
 function MainPage() {
 
-let [choseCardStyle, setChoseCardStyle] = useState(Array(18).fill({display:"block"})) 
+  let [chooseCardStyle, setChooseCardStyle] = useState(Array(18).fill("defaultCard"))
+  let [check, setCheck] = useState("")
+  let [seerTxt, setSeerTxt] = useState("...")
+  let [timer, setTimer] = useState(0)
 
-function chooseCards(index){
-  let newChoseCardStyle = [...choseCardStyle];
-    newChoseCardStyle[index] = {display: "block", opacity:"0.5"};
-    setChoseCardStyle(newChoseCardStyle)
-    console.log(newChoseCardStyle);
-}
+
+  function chooseCards(index) {
+    let newChooseCardStyle = [...chooseCardStyle];
+    let chooseCardQuantity = newChooseCardStyle.filter(element => element === "glowingCard").length
+    if (chooseCardQuantity < 3) {
+      newChooseCardStyle[index] = "glowingCard";
+      setChooseCardStyle(newChooseCardStyle)
+    }
+    if (chooseCardQuantity == 2) {
+      setCheck("/prediction")
+      clearTimeout(timer)
+      setSeerTxt("Haz click en el mazo para proceder con la predicción")
+    }
+  }
 
 
   function seeCards() {
@@ -20,26 +31,45 @@ function chooseCards(index){
     for (let i = 0; i < 18; i++) {
       deckCards.push([reverseCard])
     }
-   console.log(deckCards);
     return deckCards
   }
 
 
+  useEffect(() => {
+    setTimer(setTimeout(() => {
+      let newChooseCardStyle = [...chooseCardStyle];
+      let chooseCardQuantity = newChooseCardStyle.filter(element => element === "glowingCard").length
+      if (chooseCardQuantity == 0) {
+        setSeerTxt("Tienes que seleccionar tres cartas")
+      }
+      return () => clearTimeout(timer)
+    }, 5000))
+  }, [chooseCardStyle])
+
+
+
+
+
+
   return (
     <div className='main-page' >
-      <h1>Escoje tus cartas</h1>
+      <h1>Escoje tres cartas</h1>
       <div className='main-page-cards'>
-        {seeCards().map((item,index) => {
+        {seeCards().map((item, index) => {
           return (
-          <div id={index} className='main-page-cards-img'>
-         <img id={index} src={reverseCard} onClick={() => chooseCards(index)} style={choseCardStyle[index]} alt="reverse card" />
-          </div>
-        )})}
+            <div key={index} className={`main-page-cards-img ${chooseCardStyle[index]}`} >
+              <img src={reverseCard} onClick={() => chooseCards(index)} alt="reverse card" />
+            </div>
+          )
+        })}
       </div>
       <div className='main-page-deck'>
-        <Link to="/prediction">
+        <Link to={check}>
           <img className='main-page-deck-img' src={deckCards} alt="reverse card" />
         </Link>
+      </div>
+      <div className='main-page-seer'>
+        <p>{seerTxt}</p>
       </div>
     </div>
   )

@@ -1,15 +1,17 @@
 import CardGroup from "./CardGroup";
 import MainPage from "./MainPage"
 import '../css/App.css';
+import useState from "react"
 // import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function App() {
 
+  
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <><MainPage /></>
+      element: <MainPage />
     },
     {
       path:"/prediction",
