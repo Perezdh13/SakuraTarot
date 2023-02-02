@@ -4,6 +4,7 @@ import '../css/App.css';
 import useState from "react"
 // import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import SoundDemo from "./SoundDemo";
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
   return (
       <div className="main">
         <RouterProvider router={router} />
+        <SoundDemo/>
       </div>
 
   );
