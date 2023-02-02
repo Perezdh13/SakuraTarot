@@ -7,7 +7,7 @@ function MainPage() {
 
   let [chooseCardStyle, setChooseCardStyle] = useState(Array(18).fill("defaultCard"))
   let [check, setCheck] = useState("")
-  let [seerTxt, setSeerTxt] = useState("...")
+  let [seerTxt, setSeerTxt] = useState("Hola, amiguitos. ¿Habéis venido para que os lea el futuro?")
   let [timer, setTimer] = useState(0)
 
 
@@ -21,7 +21,7 @@ function MainPage() {
     if (chooseCardQuantity === 2) {
       setCheck("/prediction")
       clearTimeout(timer)
-      setSeerTxt("Haz click en el mazo para proceder con la predicción")
+      setSeerTxt("Ahora, haz click en el mazo para proceder con la predicción")
     }
   }
 
@@ -40,10 +40,10 @@ function MainPage() {
       let newChooseCardStyle = [...chooseCardStyle];
       let chooseCardQuantity = newChooseCardStyle.filter(element => element === "glowingCard").length
       if (chooseCardQuantity === 0) {
-        setSeerTxt("Tienes que seleccionar tres cartas")
+        setSeerTxt("Necesito que escojas tres cartas.")
       }
-      return () => clearTimeout(timer)
     }, 5000))
+    return () => clearTimeout(timer)
   }, [chooseCardStyle])
 
 
