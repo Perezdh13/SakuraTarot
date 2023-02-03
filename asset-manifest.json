@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/sakura-tarot/static/css/main.b4b2d5a2.css",
+    "main.js": "/sakura-tarot/static/js/main.a647c049.js",
+    "static/js/787.674daa2a.chunk.js": "/sakura-tarot/static/js/787.674daa2a.chunk.js",
+    "static/media/BGM.mp3": "/sakura-tarot/static/media/BGM.8971d667c7b129d37b08.mp3",
+    "static/media/bg.jpg": "/sakura-tarot/static/media/bg.49430bb1e0a3c5b91898.jpg",
+    "static/media/Component 2.png": "/sakura-tarot/static/media/Component 2.2fe06ce1d53ffb6c7ec1.png",
+    "static/media/reversoCarta.png": "/sakura-tarot/static/media/reversoCarta.d0e4e152b5cc7c12aedd.png",
+    "static/media/mazoCartas.png": "/sakura-tarot/static/media/mazoCartas.8b7a4ecf4ac9e0e2c5e0.png",
+    "index.html": "/sakura-tarot/index.html",
+    "main.b4b2d5a2.css.map": "/sakura-tarot/static/css/main.b4b2d5a2.css.map",
+    "main.a647c049.js.map": "/sakura-tarot/static/js/main.a647c049.js.map",
+    "787.674daa2a.chunk.js.map": "/sakura-tarot/static/js/787.674daa2a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b4b2d5a2.css",
+    "static/js/main.a647c049.js"
+  ]
+}
