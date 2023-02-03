@@ -270,6 +270,21 @@ h1 {
   color: #61dafb;
 }
 
+.music{
+  position: absolute;
+  top: 3vh;
+  left: 18vw;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  user-select: none;
+}
+
+.volume-icon{
+  color: #ffd18c;
+  cursor: pointer;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

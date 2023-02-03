@@ -21,8 +21,8 @@ function App() {
 
   return (
       <div className="main">
+        <SoundDemo />
         <RouterProvider router={router} />
-        <SoundDemo/>
       </div>
 
   );

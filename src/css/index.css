@@ -18,8 +18,10 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+}
 
-
+img{
+  -webkit-user-drag: none;
 }
 
 code {

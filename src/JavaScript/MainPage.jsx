@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import deckCards from "../img/mazoCartas.png";
 import reverseCard from "../img/reversoCarta.png";
 import seer from "../img/Component 2.png";
+
 function MainPage() {
 
   let [chooseCardStyle, setChooseCardStyle] = useState(Array(18).fill("defaultCard"))
-  let [check, setCheck] = useState("")
+  let [deckLink, setDeckLink] = useState("")
   let [seerTxt, setSeerTxt] = useState("Hola, amiguitos. ¿Habéis venido para que os lea el futuro?")
   let [timer, setTimer] = useState(0)
 
@@ -19,7 +20,7 @@ function MainPage() {
       setChooseCardStyle(newChooseCardStyle)
     }
     if (chooseCardQuantity === 2) {
-      setCheck("/prediction")
+      setDeckLink("/prediction")
       clearTimeout(timer)
       setSeerTxt("Ahora, haz click en el mazo para proceder con la predicción")
     }
@@ -37,8 +38,7 @@ function MainPage() {
 
   useEffect(() => {
     setTimer(setTimeout(() => {
-      let newChooseCardStyle = [...chooseCardStyle];
-      let chooseCardQuantity = newChooseCardStyle.filter(element => element === "glowingCard").length
+      let chooseCardQuantity = chooseCardStyle.filter(element => element === "glowingCard").length
       if (chooseCardQuantity === 0) {
         setSeerTxt("Necesito que escojas tres cartas.")
       }
@@ -70,7 +70,7 @@ function MainPage() {
         })}
       </div>
       <div className='main-page-deck'>
-        <Link to={check}>
+        <Link to={deckLink}>
           <img className='main-page-deck-img' src={deckCards} alt="reverse card" />
         </Link>
       </div>
